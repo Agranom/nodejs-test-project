@@ -11,8 +11,7 @@ router
         ctx.body = 'Some route is available';
     })
     .post('/some',  (ctx) => {
-        console.log(ctx.req.params);
-        ctx.body = ctx.req
+        ctx.body = ctx.request.body
     });
 
 app
@@ -22,4 +21,9 @@ app
 
 app.listen(port, () => {
     console.log(`Server is listening on ${port}`);
+});
+
+process.on('SIGINT', () => {
+    console.log('Get ready to exit');
+    process.exit();
 });
