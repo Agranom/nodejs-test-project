@@ -14,10 +14,12 @@
     "koa": "^2.8.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@types/koa-router": "^7.0.42",
+    "@types/node-fetch": "^2.5.2",
     "nodemon": "^1.19.3"
   }
 }

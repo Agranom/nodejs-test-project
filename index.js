@@ -3,18 +3,13 @@ const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
 
 const logger = require('./logger');
+const initRoutes  = require('./src/routes');
 
 const app = new Koa();
 const router = new Router();
 const port = 3000;
 
-router
-    .get('/users', (ctx) => {
-        ctx.body = 'Some route is available';
-    })
-    .post('/users',  (ctx) => {
-        ctx.body = ctx.request.body;
-    });
+initRoutes(router);
 
 app
     .use(bodyParser())
