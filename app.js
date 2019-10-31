@@ -17,6 +17,8 @@ app
     .use(router.routes())
     .use(router.allowedMethods());
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Server is listening on ${port}`);
 });
+
+module.exports = server;
