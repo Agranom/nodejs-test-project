@@ -1,5 +1,5 @@
 const LIVR = require('livr');
-const db = require('../db');
+const db = require('../db-old');
 
 const itemsController = {
     getItems(ctx) {
