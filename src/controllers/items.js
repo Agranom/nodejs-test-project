@@ -1,15 +1,16 @@
 const LIVR = require('livr');
-const db = require('../db-old');
+const dbOld = require('../db-old');
+const db = require('../initializers/db');
 
 const itemsController = {
-    getItems(ctx) {
-        ctx.body = db.getItems();
+    async getItems(ctx) {
+        ctx.body = await db.getItems();
     },
     createItem(ctx) {
         const isAdmin = ctx.headers.authorization === 'admin';
 
         if (isAdmin) {
-            db.writeItem(null, ctx.request.body);
+            dbOld.writeItem(null, ctx.request.body);
             ctx.status = 201;
         } else {
             ctx.status = 403
@@ -17,7 +18,7 @@ const itemsController = {
 
     },
     deleteItem(ctx) {
-        db.deleteItem(ctx.params.itemId);
+        dbOld.deleteItem(ctx.params.itemId);
         ctx.statusCode = 204;
         ctx.body = 'Ok'
     },
@@ -36,7 +37,7 @@ const itemsController = {
             return;
         }
 
-        const updatedItem = db.updateItem(+ctx.params.itemId, ctx.request.body);
+        const updatedItem = dbOld.updateItem(+ctx.params.itemId, ctx.request.body);
 
         if (updatedItem) {
             ctx.body = updatedItem;

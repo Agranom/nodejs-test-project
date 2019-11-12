@@ -15,7 +15,9 @@ initRoutes(router);
 
 const db = new DB(`${__dirname}/assets`);
 
-(async () => console.log(await db.getItems()))();
+db.getItems().then(() => {
+    return db.createItem({price: 100, name: 'some name'})
+}).then((payload) => console.log(payload));
 
 app
     .use(bodyParser())
