@@ -24,7 +24,7 @@
     "@types/koa-router": "^7.0.42",
     "@types/node-fetch": "^2.5.2",
     "chai": "^4.2.0",
-    "mocha": "^6.2.2",
+    "mocha": "^10.2.0",
     "nodemon": "^1.19.3",
     "supertest": "^4.0.2"
   }
